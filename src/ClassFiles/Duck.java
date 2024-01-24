@@ -1,3 +1,4 @@
+package ClassFiles;
 public class Duck {
     int age;
     String name;
