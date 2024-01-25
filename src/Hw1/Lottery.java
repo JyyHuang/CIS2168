@@ -1,3 +1,4 @@
+package Hw1;
 import java.util.*;
 
 public class Lottery
@@ -33,6 +34,7 @@ public class Lottery
       System.out.println("Draw the following integers " +
             "from the set 1 to " + (n + k) + ":");
       // YOUR CODE HERE
+      Arrays.sort(result);
       System.out.println(Arrays.toString(result));
    }
 }
