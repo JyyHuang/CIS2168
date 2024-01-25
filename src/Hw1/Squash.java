@@ -1,30 +1,32 @@
 package Hw1;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Squash {
     public static void main(String[] args) {
-        
+        int[] list = {0,0,0,0,1,1,0,0,0,7,7,7,1,1,0};
+        System.out.println("Before: " + Arrays.toString(list));
+        squash(list);
+        System.out.println("After: " + Arrays.toString(list));
     }
 
-    public static int[] squash(int[] list){
-        int l = 0;
-        int r = 1;
-        int i = 0;
-        int duplicateCount = 0;
-        int[] result = new int[list.length];
-        while (list[r] != -1 || r < list.length);{
-            if (list[l] == (list[r])){
-                l++;
-                r++;
-                duplicateCount++;
-            }
-            else{
-                result[i] = list[l];
-                i++;
+    public static void squash(int[] arr){
+        if (arr.length == 0){
+            return;
+        }
+
+        int j = 0;
+        int current = arr[j];
+        for (int i = 1; i < arr.length; i++){
+            if (arr[i] != current){
+                j++;
+                arr[j] = arr[i];
+                current = arr[j];
             }
         }
 
-        for ()
+        for (int i = j + 1; i < arr.length; i++){
+            arr[i] = -1;
+        }
     }
 }
