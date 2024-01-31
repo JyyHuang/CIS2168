@@ -1,11 +1,11 @@
-package ClassFiles.InClassExercise;
+package ClassFiles.Jantwentysix;
 public class ListFilter {
    public static void main(String[] args) {
       // read the valid list into an int array (the next line reads valid1M.txt containing 1 million entries)
-      // In in = new In("https://gist.githubusercontent.com/david-dobor/8e72f21c733b677af60f35086e65924f/raw/2e6e4daa0b019b22de38b9e6572af29cf19b6139/valid1M.txt");
+      In in = new In("https://gist.githubusercontent.com/david-dobor/8e72f21c733b677af60f35086e65924f/raw/2e6e4daa0b019b22de38b9e6572af29cf19b6139/valid1M.txt");
 
       // alternatively, read in a small file called valid.txt
-      In in = new In("src/ClassFiles/InClassExercise/valid.txt");
+      //In in = new In("src/ClassFiles/InClassExercise/valid.txt");
       int[] a = in.readAllInts();
 
       // create a CollectionOfInts object that can process the input
@@ -13,10 +13,10 @@ public class ListFilter {
       IntCollection collection = new IntCollection(a); // uses linear-search under the hood (SLOW)
 
       // read the data that needs to be filtered (the next line reads contenders1M.txt containing 1.5 million entries)
-      //in = new In("https://gist.githubusercontent.com/david-dobor/ac1a8528a0b8a5a88e41777c56e51bc4/raw/f7a65a9682f186ce25d2e9e2f6aa95b664c90c72/contenders1M.txt");
+      in = new In("https://gist.githubusercontent.com/david-dobor/ac1a8528a0b8a5a88e41777c56e51bc4/raw/f7a65a9682f186ce25d2e9e2f6aa95b664c90c72/contenders1M.txt");
 
       // alternatively, read in a small file called contenders.txt
-      in = new In("src/ClassFiles/InClassExercise/contenders.txt");
+      //in = new In("src/ClassFiles/InClassExercise/contenders.txt");
       int[] keys = in.readAllInts();
 
       // Now filter the list by relying on the CollectionOfInts API
