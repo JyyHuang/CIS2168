@@ -10,57 +10,41 @@ public class Zigzag {
       int width = array.get(0).size() - 1;
       List<Integer> result = new ArrayList<>();
       int row = 0, col = 0;
-      // Your code below:
-      boolean goingDown = true;
-      boolean goingRight = false;
-      result.add(array.get(row).get(col));
-      while (!outOfBounds(row, col, height, width)){
-         if (goingDown && !outOfBounds(row - 1, col + 1, height, width)){
-            row++;
-            result.add(array.get(row).get(col));
-            while (!outOfBounds(row - 1, col + 1, height, width)){
-               System.out.println("HELLO");
+   
+      boolean goingDown = true; // start with going down
+   
+      while (!outOfBounds(row, col, height, width)) {
+         result.add(array.get(row).get(col));
+
+         if (goingDown) {
+            // Move diagonally down and left
+            if (!outOfBounds(row + 1, col - 1, height, width)) {
                row++;
-               col++;
-               result.add(array.get(row).get(col));
-            }
-            goingDown = false;
-            goingRight = true;
-         }
-         else if (goingDown && !outOfBounds(row + 1, col - 1, height, width)){
-            row++;
-            result.add(array.get(row).get(col));
-            while (!outOfBounds(row + 1, col - 1, height, width)){
-               row--;
                col--;
-               result.add(array.get(row).get(col));
+            } else {
+               goingDown = false; // Change direction
+               if (!outOfBounds(row + 1, col, height, width)) {
+                  row++;
+               } else {
+                  col++;
+               }
             }
-            goingDown = false;
-            goingRight = true;
-         }
-         else if (goingRight && !outOfBounds(row - 1, col + 1, height, width)){
-            col++;
-            result.add(array.get(row).get(col));
-            while (!outOfBounds(row - 1, col + 1, height, width)){
-               row++;
+         } else {
+            // Move diagonally up and right
+            if (!outOfBounds(row - 1, col + 1, height, width)) {
+               row--;
                col++;
-               result.add(array.get(row).get(col));
+            } else {
+               goingDown = true; // Change direction
+               if (!outOfBounds(row, col + 1, height, width)) {
+                  col++;
+               } else {
+                  row++;
+               }
             }
-            goingDown = true;
-            goingRight = false;
-         }
-         else if (goingDown && !outOfBounds(row + 1, col - 1, height, width)){
-            col++;
-            result.add(array.get(row).get(col));
-            while (!outOfBounds(row + 1, col - 1, height, width)){
-               row++;
-               col++;
-               result.add(array.get(row).get(col));
-            }
-            goingDown = true;
-            goingRight = false;
          }
       }
+
       return result;
    }
 
@@ -115,32 +99,32 @@ public class Zigzag {
       table = new ArrayList<>(List.of(row1, row2, row3, row4));
       result = zigzag(table);
       System.out.println("Test 5 result: \n\t " + result + "\n");  // should print [1, 2, 3, 4]
-//
-//      /*------------- START TEST 6 ---------------*/
-//      row1 = new ArrayList<>(List.of(1, 3));
-//      row2 = new ArrayList<>(List.of(2, 4));
-//      row3 = new ArrayList<>(List.of(5, 7));
-//      row4 = new ArrayList<>(List.of(6, 8));
-//      row5 = new ArrayList<>(List.of(9, 10));
-//      table = new ArrayList<>(List.of(row1, row2, row3, row4, row5));
-//      result = zigzag(table);
-//      System.out.println("Test 6 result: \n\t " + result + "\n");  // should print [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-//
-//      /*------------- START TEST 7 ---------------*/
-//      row1 = new ArrayList<>(List.of(1, 21, -3, 4, 15, 6, -7, 88, 9));
-//      row2 = new ArrayList<>(List.of(10, 11, 112, 12, 20, -1, -2, -3, -4));
-//      row3 = new ArrayList<>(List.of(6, 8, 113, 19, 21, 0, 0, 0, 0));
-//      row4 = new ArrayList<>(List.of(7, 2, 18, 22, -27, 12, 32, -11, 66));
-//      row5 = new ArrayList<>(List.of(15, 17, 23, 226, 28, -28, -226, -23, -17));
-//      row6 = new ArrayList<>(List.of(16, 24, 27, 299, 30, 29, 32, 31, 88));
-//      table = new ArrayList<>(List.of(row1, row2, row3, row4, row5, row6));
-//      result = zigzag(table);
-//      System.out.println("Test 7 result: \n\t " + result + "\n");  // should print [1, 10, 21, -3, 11, 6, 7, 8, 112, 4,
-//                                                                   //               15, 12, 113, 2, 15, 16, 17, 18, 19,
-//                                                                   //               20, 6, -7, -1, 21, 22, 23, 24, 27,
-//                                                                   //               226, -27, 0, -2, 88, 9, -3, 0, 12,
-//                                                                   //               28, 299, 30, -28, 32, 0, -4, 0, -11,
-//                                                                   //               -226, 29, 32, -23, 66, -17, 31, 88]
+
+      /*------------- START TEST 6 ---------------*/
+      row1 = new ArrayList<>(List.of(1, 3));
+      row2 = new ArrayList<>(List.of(2, 4));
+      row3 = new ArrayList<>(List.of(5, 7));
+      row4 = new ArrayList<>(List.of(6, 8));
+      row5 = new ArrayList<>(List.of(9, 10));
+      table = new ArrayList<>(List.of(row1, row2, row3, row4, row5));
+      result = zigzag(table);
+      System.out.println("Test 6 result: \n\t " + result + "\n");  // should print [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+      /*------------- START TEST 7 ---------------*/
+      row1 = new ArrayList<>(List.of(1, 21, -3, 4, 15, 6, -7, 88, 9));
+      row2 = new ArrayList<>(List.of(10, 11, 112, 12, 20, -1, -2, -3, -4));
+      row3 = new ArrayList<>(List.of(6, 8, 113, 19, 21, 0, 0, 0, 0));
+      row4 = new ArrayList<>(List.of(7, 2, 18, 22, -27, 12, 32, -11, 66));
+      row5 = new ArrayList<>(List.of(15, 17, 23, 226, 28, -28, -226, -23, -17));
+      row6 = new ArrayList<>(List.of(16, 24, 27, 299, 30, 29, 32, 31, 88));
+      table = new ArrayList<>(List.of(row1, row2, row3, row4, row5, row6));
+      result = zigzag(table);
+      System.out.println("Test 7 result: \n\t " + result + "\n");  // should print [1, 10, 21, -3, 11, 6, 7, 8, 112, 4,
+                                                                   //               15, 12, 113, 2, 15, 16, 17, 18, 19,
+                                                                   //               20, 6, -7, -1, 21, 22, 23, 24, 27,
+                                                                   //               226, -27, 0, -2, 88, 9, -3, 0, 12,
+                                                                   //               28, 299, 30, -28, 32, 0, -4, 0, -11,
+                                                                   //               -226, 29, 32, -23, 66, -17, 31, 88]
 
    }
 }
