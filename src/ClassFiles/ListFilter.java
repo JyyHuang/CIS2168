@@ -1,4 +1,5 @@
-package ClassFiles.Jantwentysix;
+package ClassFiles;
+
 public class ListFilter {
    public static void main(String[] args) {
       // read the valid list into an int array (the next line reads valid1M.txt containing 1 million entries)

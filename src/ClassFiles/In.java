@@ -1,4 +1,4 @@
-package ClassFiles.Jantwentysix;
+package ClassFiles;
 import java.io.*;
 import java.util.*;
 import java.net.URL;
@@ -62,7 +62,7 @@ public final class In {
    public static void main(String[] args) {
       // Test 1: Initialize In with tinyT.txt data file (stored on github)
       //In in = new In("https://gist.githubusercontent.com/david-dobor/1dc31f47f3c918c2285aa130e3a355d5/raw/b77c3953206c34feffd2c3a65361b0d5e029e17b/valid.txt");
-      In in = new In("src/ClassFiles/InClassExercise/valid.txt");
+      In in = new In("src/ClassFiles/valid.txt");
       int[] a = in.readAllInts();
       System.out.println(Arrays.toString(a));
 

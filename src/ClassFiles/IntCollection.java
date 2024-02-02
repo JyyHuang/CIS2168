@@ -1,4 +1,4 @@
-package ClassFiles.Jantwentysix;
+package ClassFiles;
 
 import java.util.Arrays;
 

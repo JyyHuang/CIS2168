@@ -1,4 +1,4 @@
-package ClassFiles.Janthirtyone;
+package ClassFiles;
 
 public class TestResizingArray {
    public static void main(String[] args) {
