@@ -13,7 +13,7 @@ public class ResizingArrayList<E> implements Iterable<E> {
    public ResizingArrayList() {
       elements = (E[]) new Object[INIT_CAPACITY];
       n = 0;
-   }
+   } 
 
    // Returns the number of elements in the list.
    public int size() { return n; }
@@ -31,9 +31,8 @@ public class ResizingArrayList<E> implements Iterable<E> {
    public void add(E element) {  
       if (n == elements.length){
          resize(2 * elements.length);
-      }      
-      elements[n] = element;
-      n++;
+      }
+      elements[n++] = element;
    }
 
    // Adds the element at index.
