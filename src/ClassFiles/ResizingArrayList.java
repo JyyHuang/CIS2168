@@ -10,6 +10,7 @@ public class ResizingArrayList<E> implements Iterable<E> {
    private int n;          // the number of elements in the list
 
    /* Constructor: Initializes an empty list. */
+   @SuppressWarnings("unchecked")
    public ResizingArrayList() {
       elements = (E[]) new Object[INIT_CAPACITY];
       n = 0;

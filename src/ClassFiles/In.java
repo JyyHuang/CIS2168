@@ -28,6 +28,7 @@ public final class In {
          }
 
          // resource on the web
+         @SuppressWarnings("deprecation")
          URL url = new URL(name);
          URLConnection site = url.openConnection();
          InputStream is     = site.getInputStream();
