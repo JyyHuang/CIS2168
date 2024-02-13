@@ -1,4 +1,4 @@
-package ClassFiles;
+package Hw3;
 
 public class NodeTest {
    public static void main(String[] args) {
@@ -14,7 +14,6 @@ public class NodeTest {
       // two.next.next = five;
 
       // TODO: 3) Iterate through the list and print 2 -> 1 -> 5 -> null
-      Node<Integer> dummy = two;
 
       for (Node<Integer> x = two;x != null; x = x.next){
          System.out.print(x.data + " -> ");
@@ -23,6 +22,7 @@ public class NodeTest {
 
 
 
+      Node<Integer> dummy = two;
       while (dummy != null){
          System.out.print(dummy.data + " -> ");
          dummy = dummy.next;

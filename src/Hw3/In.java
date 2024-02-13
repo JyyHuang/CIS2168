@@ -1,4 +1,4 @@
-package ClassFiles.Febnine;
+package Hw3;
 
 import java.io.*;
 import java.net.URL;
@@ -27,6 +27,7 @@ public final class In {
          }
 
          // resource on the web
+         @SuppressWarnings("deprecation")
          URL url = new URL(name);
          URLConnection site = url.openConnection();
          InputStream is = site.getInputStream();
