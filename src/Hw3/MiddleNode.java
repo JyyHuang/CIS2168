@@ -1,16 +1,33 @@
 package Hw3;
 
 public class MiddleNode {
+    Node first; // reference to the first node
+    int size; // the number of items on this list
+    
+    /* Class Node: stores data and a link to another Node */
+    class Node {
+        private Object data;
+        private Node next;
+    }
+
+    /* adds an item to the front of the list */
+    void add(Object item) {
+        Node oldfirst = first;
+        first = new Node();
+        first.data = item;
+        first.next = oldfirst;
+        size++;
+    }
+
     /* Tortoise and Hare algorithm
      *
      * Initialize two pointers: one fast, one slow
      * Meaning the fast pointer moves by two nodes, and the slow pointer moves by one node
      * once the fast pointer gets to the end, then we are guaranteed that the slow pointer is the middle value
     */
-
-    public static Node getMiddle(Node list){
-        Node fast = list;
-        Node slow = list;
+    public Node getMiddle(){
+        Node fast = first;
+        Node slow = first;
         while (fast != null && fast.next != null){
             fast = fast.next.next;
             slow = slow.next;
@@ -19,12 +36,13 @@ public class MiddleNode {
     }
 
     public static void main(String[] args) {
-        Node<Integer> one = new Node<Integer>(1);
-        Node<Integer> two = new Node<Integer>(2, one);
-        Node<Integer> five = new Node<Integer>(5, two);
-        Node<Integer> four = new Node<Integer>(4, five);
-        Node<Integer> three = new Node<Integer>(3, four);
-
-        System.out.println(getMiddle(three).data); // should print 5
+        MiddleNode list = new MiddleNode();
+        list.add(8); list.add(6); list.add(1); list.add(2); list.add(99); list.add(10);
+        for (Node x = list.first; x != null; x = x.next){
+            System.out.print(x.data + " -> ");
+        }
+        System.out.println("null");
+        Node mid = list.getMiddle();
+        System.out.println("middle node: " + mid.data);
     }
 }

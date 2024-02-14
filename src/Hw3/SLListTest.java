@@ -5,15 +5,15 @@ public class SLListTest<E> {
       SLListSimple<String> list;
 
       // TEST 1: testing addFirst() ... add your own tests ...
-      //list = new SLListSimple<>();
-      //System.out.println("\nCreated an empty list: [ " + list +"]" + "  // size = " + list.size());
-      //System.out.println("\tTesting addFirst: ");
-      //list.addFirst("hi");
-      //System.out.println("After adding an item at the front: [ " + list +"]" + "  // size = " + list.size());
-      //list.addFirst("there");
-      //System.out.println("After adding another item at the front: [ " + list +"]" + "  // size = " + list.size());
-      //list.addFirst("World"); list.addFirst("Hello");
-      //System.out.println("After adding another item at the front: [ " + list +"]" + "  // size = " + list.size());
+      list = new SLListSimple<>();
+      System.out.println("\nCreated an empty list: [ " + list +"]" + "  // size = " + list.size());
+      System.out.println("\tTesting addFirst: ");
+      list.addFirst("hi");
+      System.out.println("After adding an item at the front: [ " + list +"]" + "  // size = " + list.size());
+      list.addFirst("there");
+      System.out.println("After adding another item at the front: [ " + list +"]" + "  // size = " + list.size());
+      list.addFirst("World"); list.addFirst("Hello");
+      System.out.println("After adding another item at the front: [ " + list +"]" + "  // size = " + list.size());
 
       // TEST 2: testing addLast() ... add your own tests ...
       //list = new SLListSimple<>();
