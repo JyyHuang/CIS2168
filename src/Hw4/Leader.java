@@ -19,7 +19,12 @@ public class Leader {
                 list.addLast(list.removeFirst());
             }
             list.removeFirst();
-            System.out.println(list);
+            if (list.isEmpty()){
+                System.out.println("You are the leader!");
+            } else{
+
+                System.out.println(list);
+            }
         }
     }
 }
