@@ -3,6 +3,7 @@ package Hw3;
 import java.util.NoSuchElementException;
 import java.util.concurrent.RecursiveTask;
 
+
 public class SLListSimple<E> {
    private int n;        // size of the list
    private Node first;   // reference to the first node of the list
