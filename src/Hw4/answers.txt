@@ -3,13 +3,13 @@ List size   |   Time taken by get()   |   Time taken by next()
     n                   T(n)                    T'(n)
 ---------------------------------------------------------------
     50,000              3023.23 ms              1373.33 ms
-    100,000             9435.66 ms             2626.0 ms
+    100,000             9435.66 ms              2626.0 ms
     200,000             31232.66 ms             5232.0 ms
     400,000             119536.0 ms             11941.66 ms
 
 What, approximately, are the ratios T(2n)/T(n) (the middle column)?
 
-    - They are approximately 3:1.
+    - They are approximately 4:1.
 
 What, approximately, are the ratios T′(2n)/T′(n) (the third column)?
 
