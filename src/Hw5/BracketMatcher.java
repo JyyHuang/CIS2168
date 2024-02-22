@@ -4,7 +4,7 @@ import java.util.Stack;
 public class BracketMatcher {
 
    public static void main(String[] args) {
-      In in = new In("./src/Hw5/test06.txt");
+      In in = new In("./src/Hw5/testCustom.txt");
       String text = in.readAll();
       System.out.println("processing: " + text); // comment out or delete this line before submitting
       Stack<Character> openingBrackets = new Stack<>();
@@ -14,16 +14,20 @@ public class BracketMatcher {
          /* YOUR CODE HERE */
          if (next == '[' || next == '(' || next == '{'){
             openingBrackets.push(next);
-         } else if (next == ']' && openingBrackets.pop() != '['){
+         } else if (next == ']' && (openingBrackets.isEmpty() || openingBrackets.pop() != '[')){
             System.out.println(position);
             System.exit(0);
-         } else if (next == ')' && openingBrackets.pop() != '('){
+         } else if (next == ')' && (openingBrackets.isEmpty() || openingBrackets.pop() != '(')){
             System.out.println(position);
             System.exit(0);
-         }  else if (next == '}' && openingBrackets.pop() != '{'){
+         }  else if (next == '}' && (openingBrackets.isEmpty() || openingBrackets.pop() != '{')){
             System.out.println(position);
             System.exit(0);
          }
+      }
+      if (!openingBrackets.isEmpty()){
+         System.out.println(openingBrackets.size());
+         System.exit(0);
       }
       // Print "Success" if brackets are balanced
       /* YOUR CODE HERE */
