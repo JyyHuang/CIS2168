@@ -1,0 +1,14 @@
+1. What output do you get for the following tree traversals?
+(a) Preorder 
+49 28 18 11 19 40 32 44 83 71 69 72 97 92 99
+
+(b) Inorder 
+11 18 19 28 32 40 44 49 69 71 72 83 92 97 99
+
+(d) Postorder
+11 19 18 32 44 40 28 69 72 71 92 99 97 83 49
+
+
+2. What happens if you change the order of the integers in the array keys on line 5 in TestBST.java ? Do you get the same output? Why?
+
+If you change the order, inorder traversal would remain the same, but the other two would be different. This is because in order traversal sorts the BST, so the order doesn't matter. However, for the other two traversals, order does matter.

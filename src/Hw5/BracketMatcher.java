@@ -4,7 +4,7 @@ import java.util.Stack;
 public class BracketMatcher {
 
    public static void main(String[] args) {
-      In in = new In("./src/Hw5/testCustom.txt");
+      In in = new In("./src/Hw5/test100.txt");
       String text = in.readAll();
       System.out.println("processing: " + text); // comment out or delete this line before submitting
       Stack<Character> openingBrackets = new Stack<>();
