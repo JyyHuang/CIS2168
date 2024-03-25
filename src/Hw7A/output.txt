@@ -1,0 +1,41 @@
+Player 1: [7D, 7S, 5D, 7C, 5H]  (full house)
+Player 2: [7S, 8S, 5S, AS, 6S]  (flush)
+			    Player 1 wins.
+
+Player 1: [9D, 9S, 3D, 9C, 3H]  (full house)
+Player 2: [7C, 4H, 7D, 7H, 7S]  (four of a kind)
+			    Player 2 wins.
+
+Player 1: [7C, 4H, 7D, 7H, 7S]  (four of a kind)
+Player 2: [7S, 8S, 9S, JS, TS]  (straight flush)
+			    Player 2 wins.
+
+Player 1: [7S, 8S, 9S, JS, TH]  (straight)
+Player 2: [AS, 2S, 3S, 5S, KS]  (flush)
+			    Player 2 wins.
+
+Player 1: [7C, 5H, KC, QH, JD]  (nothing)
+Player 2: [AS, KH, 4C, AD, 4S]  (two pair)
+			    Player 2 wins.
+
+Player 1: [AS, KH, 4C, AD, 4S]  (two pair)
+Player 2: [8D, 3S, 5D, 5C, AH]  (pair)
+			    Player 1 wins.
+
+Player 1: [6H, 4H, 5C, 3H, 2H]  (straight)
+Player 2: [AS, KH, 7C, AD, 7S]  (two pair)
+			    Player 1 wins.
+
+Player 1: [7C, 4H, 7D, 7H, 7S]  (four of a kind)
+Player 2: [KC, 4C, KH, 7S, KS]  (three of a kind)
+			    Player 1 wins.
+
+Player 1: [7S, 9S, 6S, KS, 3S]  (flush)
+Player 2: [4C, QS, QC, AC, KH]  (pair)
+			    Player 1 wins.
+
+Player 1: [TD, TS, 9D, 9C, TC]  (full house)
+Player 2: [AS, KH, KC, AD, QS]  (two pair)
+			    Player 1 wins.
+
+Number of hands won by player 1: 6
