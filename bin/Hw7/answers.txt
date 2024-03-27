@@ -1,0 +1,60 @@
+7.1: What are the steps that transform the array in the top picture to the max-heap array of the
+bottom picture?
+
+    Set the starting node to k = n(number of nodes) / 2. You set it to this becaue the rest of the nodes after a leaf nodes. We then check if the sub-tree at index k is a max-heap, and if not we sink it down the heap. We repeat these steps for each node down to the root. 
+    Final answer: [Y, U, R, P, G, A, O, L, N, D]
+
+Exercise 7.2. Arrange the letters MISCOUNTED into a heap.
+(a) What’s the result? Show the steps
+
+    [M,I,S,C,O,U,N,T,E,D] -> [M,I,S,C,O,U,N,T,E,D] | k is index of O, who has a child, D. Sub-tree already a max heap
+    [M,I,S,C,O,U,N,T,E,D] -> [M,I,S,T,O,U,N,C,E,D] | Going down the heap, checking C, who has children, T and E. Not a max heap, so swap with largest child, T.
+    [M,I,S,T,O,U,N,C,E,D] -> [M,I,U,T,O,S,N,C,E,D] | Going down the heap, checking S, who has children, U and N. Not a max heap, so swap with largest child, U. 
+    [M,I,U,T,O,S,N,C,E,D] -> [M,T,U,I,O,S,N,C,E,D] | Going down the heap, checking I, who has children, T and O. Not a max heap, so swap with largest child, T. 
+    [M,T,U,I,O,S,N,C,E,D] -> [U,T,M,I,O,S,N,C,E,D] | Going down the heap, checking M, who has children, T and U. Not a max heap, so swap with largest child, U.
+    [U,T,M,I,O,S,N,C,E,D] -> [U,T,S,I,O,M,N,C,E,D] | Sinking M since it is still not a max heap, who has children. Swap with largest child, S.
+    
+    Final answer: [U,T,S,I,O,M,N,C,E,D]
+
+
+1) What is the result of running TopMints.java with the 1, 000, 000 integers as input (show the output when you demo this lab).
+    
+    Test 1
+    ------
+    Top 5 integers are
+    999986
+    999988
+    999990
+    999995
+    999996
+
+    It took 1.11 seconds to process 1,000,000 integers using a priority queue.
+
+    Test 2
+    ------
+    Top 5 integers are
+    999986
+    999988
+    999990
+    999995
+    999996
+
+    It took 1.54 seconds to process 1,000,000 integers by sorting them.
+    -------------------------------------------------------------------
+
+2) How long did it take for Test 1 to complete on your computer?
+
+    It took 1.11 seconds for Test 1
+
+3) What is the Big-O running time of Test 1?
+
+    The overall time complexity is O(nlogm)
+
+4) How long did it take for Test 2 to complete on your computer?
+
+    It took 1.54 seconds for Test 2
+
+5) What is the Big-O running time of Test 2?
+    
+    The overall time complexity is O(nlogn)
+    

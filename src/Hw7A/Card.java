@@ -1,3 +1,4 @@
+package Hw7A;
 /**
  * Implementation of a playing card. This class implements the
  * Comparable interface and compares cards by rank, with an

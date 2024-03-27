@@ -1,3 +1,4 @@
+package Hw7A;
 import java.util.Arrays;
 
 public class TestHand {

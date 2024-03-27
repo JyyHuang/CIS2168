@@ -1,3 +1,4 @@
+package Hw7A;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -5,7 +6,7 @@ public class CompareDistinctCategoryHands {
    public static void main(String[] args) {
       int p1wins = 0;
       try {
-         for (String line : Files.readAllLines(Paths.get("distinctHandPairs.txt"))) {
+         for (String line : Files.readAllLines(Paths.get("src/Hw7A/distinctHandPairs.txt"))) {
             Hand hand1 = new Hand(line.substring(0, 14));
             Hand hand2 = new Hand(line.substring(14, 29).trim());
 
