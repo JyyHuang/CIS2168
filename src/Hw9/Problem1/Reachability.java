@@ -3,8 +3,11 @@ import java.util.Arrays;
 
 public class Reachability {
   private static int reach(ArrayList<Integer>[] adj, int x, int y) {
-    boolean marked[];
-    return -2168; // <- change this line to return the correct result
+    boolean marked[] = new boolean[adj.length];
+    for (int i = 0; i < adj.length; i++) marked[i] = false;
+    dfs(adj, x, marked);
+    if (marked[x] == true && marked[y] == true) return 1;
+    return 0; // <- change this line to return the correct result
   }
 
   private static void dfs(ArrayList<Integer>[] adj, int v, boolean[] marked) {
@@ -16,7 +19,7 @@ public class Reachability {
   }
 
   public static void main(String[] args) {
-    In in = new In("G1-1.txt");
+    In in = new In("G1-3.txt");
     int n = in.readInt(); // number of vertices
     int m = in.readInt(); // number of edges
 
