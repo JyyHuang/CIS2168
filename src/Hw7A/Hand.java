@@ -155,12 +155,12 @@ public class Hand {
 
    // Is this hand a straight? (Can also be a flush.)
    public boolean isStraight() {
-       int firstRank = cardRanks[0];
+       int compareRank = cardRanks[0];
        for (Integer rank : cardRanks){
-           if (rank != firstRank){
+           if (rank != compareRank){
                return false;
            }
-           firstRank--;
+           compareRank--;
        }
       return true; // delete this line and substitute it with your code
    }
