@@ -6,8 +6,8 @@ public class Reachability {
     boolean marked[] = new boolean[adj.length];
     for (int i = 0; i < adj.length; i++) marked[i] = false;
     dfs(adj, x, marked);
-    if (marked[x] == true && marked[y] == true) return 1;
-    return 0; // <- change this line to return the correct result
+    if (marked[y] == true) return 1;
+    return 0; 
   }
 
   private static void dfs(ArrayList<Integer>[] adj, int v, boolean[] marked) {
@@ -19,7 +19,7 @@ public class Reachability {
   }
 
   public static void main(String[] args) {
-    In in = new In("G1-3.txt");
+    In in = new In("G1-2.txt");
     int n = in.readInt(); // number of vertices
     int m = in.readInt(); // number of edges
 
