@@ -22,12 +22,16 @@ public class Merge {
    // Rearranges the array in ascending order, using the natural order.
    public static void sort(Comparable[] a) {
       Comparable[] aux = new Comparable[a.length];
-      // YOUR CODE HERE
+      sort(a, aux, 0, a.length - 1);
    }
 
    // mergesort a[lo..hi] using auxiliary array aux[lo..hi]
    private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
-      // YOUR CODE HERE
+       if (hi <= lo) return;
+       int mid = (hi + lo) / 2;
+       sort(a, aux, lo , mid);
+       sort(a, aux, mid + 1, hi);
+       merge(a, aux, lo, mid, hi);
    }
 
    // stably merge a[lo .. mid] with a[mid+1 ..hi] using aux[lo .. hi]
