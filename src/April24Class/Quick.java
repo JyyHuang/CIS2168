@@ -1,0 +1,114 @@
+/******************************************************************************
+ *  Compilation:  javac Quick.java
+ *  Execution:    java Quick   [ < input.txt ]
+ *  Dependencies: In.java
+ *  Data files:   tiny.txt, words3.txt
+ *
+ *  Sorts a sequence of strings from standard input using quicksort.
+ *
+ *  % more tiny.txt
+ *  S O R T E X A M P L E
+ *
+ *  % java Quick                       [ run Quick.java with tiny.txt as input]
+ *  A E E L M O P R S T X              [ outputs one string per line ]
+ *
+ *  % more words3.txt
+ *  bed bug dad yes zoo ... all bad yet
+ *
+ *  % java Quick                      [run Quick.java with words3.txt as input]
+ *  all bad bed bug dad ... yes yet zoo         [ outputs one string per line ]
+ *
+ ******************************************************************************/
+
+import java.util.Random;
+
+// Class Quick. Provides static methods for sorting an array using quicksort.
+public class Quick {
+
+    // This class should not be instantiated.
+    private Quick() { }
+
+    // Rearranges the array in ascending order, using the natural order.
+    public static void sort(Comparable[] a) {
+        shuffle(a);
+        sort(a, 0, a.length - 1);
+    }
+
+    // quicksort the subarray from a[lo] to a[hi]
+    private static void sort(Comparable[] a, int lo, int hi) {
+        if (hi <= lo) return;
+        // YOUR CODE HERE
+    }
+
+   // partition the subarray a[lo..hi] so that a[lo..j-1] <= a[j] <= a[j+1..hi]
+   // and return the index j.
+   private static int partition(Comparable[] a, int lo, int hi) {
+      int i = lo, j = hi + 1;
+      Comparable v = a[lo];   // the pivot - the leftmost element of a
+
+      // YOUR CODE HERE
+
+      // put partitioning item v at a[j]
+      exch(a, lo, j);
+
+      // now, a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
+      return j;
+   }
+
+   /***************************************************************************
+    *****************************  Helper methods  ****************************
+    ***************************************************************************/
+
+   // is x < y ?
+   private static boolean less(Comparable x, Comparable y) {
+      if (x == y) return false;   // optimization when reference equals
+      return x.compareTo(y) < 0;
+   }
+
+   // exchange a[i] and a[j]
+   private static void exch(Object[] a, int i, int j) {
+      Object swap = a[i];
+      a[i] = a[j];
+      a[j] = swap;
+   }
+
+
+   // print array to standard output
+   private static void show(Comparable[] a) {
+      for (int i = 0; i < a.length; i++)
+         System.out.print(a[i] + " ");
+      System.out.println();
+   }
+
+   // shuffle the array
+   public static void shuffle(Object[] a) {
+      int n = a.length;
+      for (int i = 0; i < n; i++) {
+         int r = i + new Random().nextInt(n - i);     // between i and n-1
+         Object temp = a[i];
+         a[i] = a[r];
+         a[r] = temp;
+      }
+   }
+
+    /**
+     * Reads in a sequence of strings from standard input; quicksorts them;
+     * and prints them to standard output in ascending order.
+     */
+    public static void main(String[] args) {
+        String[] a = new In("tiny.txt").readAllStrings();
+        Quick.sort(a);
+        show(a);
+
+        // test quicksort with integers
+        In in = new In("12ints.txt");
+        int n = in.readInt();
+        Integer[] b = new Integer[n];
+        for (int i = 0; i < n; i++) {
+            b[i] = in.readInt();
+        }
+
+        Quick.sort(b);
+        show(b);
+    }
+}

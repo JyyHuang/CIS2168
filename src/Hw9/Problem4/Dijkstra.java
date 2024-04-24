@@ -1,32 +1,39 @@
 import java.util.*;
 
 public class Dijkstra {
-  private static int distance(ArrayList<Integer>[] adj,
+  private static double distance(ArrayList<Integer>[] adj,
                               ArrayList<Integer>[] cost, int s, int t) {
-    PriorityQueue<Integer> minpq = new PriorityQueue<>();
-    int[] dist = new int[adj.length];
+    Set<Integer> Q = new HashSet<>(); // vertices not on the shortest path
+    double[] dist = new double[adj.length];
 
     for (int v = 0; v < adj.length; v++) {
-      dist[v] = Integer.MAX_VALUE;
+      dist[v] = Double.POSITIVE_INFINITY;
+      Q.add(v);
     }
     dist[s] = 0;
 
-    minpq.add(s);
+    while (!Q.isEmpty()) {
+      double minDist = Double.POSITIVE_INFINITY;
+      int u = -1;
+      for (int x : Q)
+        if (dist[x] <= minDist) {
+          minDist = dist[x];
+          u = x;
+        }
 
-    while (!minpq.isEmpty()) {
-      int u = minpq.poll();
+
+      Q.remove(u);
       for (int i = 0; i < adj[u].size(); i++) {
         int v = adj[u].get(i);
         int weight = cost[u].get(i);
 
         if (dist[v] >= dist[u] + weight) {
           dist[v] = dist[u] + weight;
-          minpq.add(v);
         }
       }
     }
 
-    if (dist[t] == Integer.MAX_VALUE) {
+    if (dist[t] == Double.POSITIVE_INFINITY) {
       return -1;
     }
 
@@ -34,7 +41,7 @@ public class Dijkstra {
   }
 
   public static void main(String[] args) {
-    In in = new In("G4-2.txt");
+    In in = new In("G4-1.txt");
     int n = in.readInt();
     int m = in.readInt();
     ArrayList<Integer>[] adj = (ArrayList<Integer>[]) new ArrayList[n];
